@@ -55,19 +55,4 @@ export class LoginService {
   setToken5(token5: string) {
     localStorage.setItem('token5', token5);
   }
-  // getToken() {
-  //   return localStorage.getItem('token');
-  // }
-  // deleteToken() {
-  //   localStorage.removeItem('token');
-  // }
-
-  // isLoggedIn() {
-  //   const usertoken = this.getToken();
-  //   if (usertoken != null) {
-  //     return true
-  //   }
-  //   return false;
-  // }
-
 }
