@@ -13,6 +13,7 @@ export class LoginService {
   constructor(private http: HttpClient, private router: Router) { }
   redirectUrl: string | undefined;
   baseUrl: string = 'http://localhost/JD-API/user/';
+  baseUrl2: string = '../../../JD-API/user/';
 
 
   @Output() getLoggedInName: EventEmitter<any> = new EventEmitter();
