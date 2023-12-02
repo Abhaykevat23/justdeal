@@ -1,0 +1,30 @@
+<section class="header">
+  <a class="login" routerLink="app-login" *ngIf="header=='default'">Login/Sign-up</a>
+  <a class="login" (click)=logout() *ngIf="header=='loggedin'"><span class="name">{{uname}}</span> - Logout</a>
+
+  <button (click)="theme()" class="dark">Theme</button>
+
+  <div class="heading">
+    <h1 style="color: orangered;"><b>JUST</b></h1>
+    <h1 style="color: blue;"><b>DEAL</b></h1>
+  </div>
+
+  <button class="btn btn-success" id="btn" routerLink="">Home</button>
+
+  <span class="menu">
+    <div ngbDropdown class="d-inline-block" id="dropdown">
+      <button type="button" class="btn btn-outline-primary" id="dropdownBasic1" ngbDropdownToggle>
+        Settings
+      </button>
+      <div ngbDropdownMenu aria-labelledby="dropdownBasic1" id="item">
+        <a ngbDropdownItem routerLink="/app-profile">Profile Management</a>
+        <a ngbDropdownItem href="#">Rate Us</a>
+        <a ngbDropdownItem routerLink="/shoplogin">List Business</a>
+        <a ngbDropdownItem (click)="manageshop()" >Manage Shop</a>
+        <a ngbDropdownItem href="#">Contact Us</a>
+        <a ngbDropdownItem href="/about">About Us</a>
+        <a ngbDropdownItem  (click)="adminpage()">Admin panel</a>
+      </div>
+    </div>
+  </span>
+</section>

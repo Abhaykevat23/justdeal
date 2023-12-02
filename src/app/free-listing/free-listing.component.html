@@ -1,0 +1,64 @@
+<div class="select-business">
+    <div class="profile" >
+        <div style="display:flex">
+            <p style="font-size: 20px;"> User Name : <b>{{nameofuser}}</b></p>
+            <button class="btn btn-danger" style="margin-left: 900px;width: 140px;" (click)="logout()"> Log Out </button>
+         </div>
+        <p style="color:red"><b> *Select Your Business Field </b> </p>
+    </div>
+    <div class="facalities">
+        <table class="table">
+            <tr>
+                <td routerLink="/add-shop/{{hotel}}">
+                    <span class="text">RESTAURANTS</span><span><img src="assets/restaurant.jpg" class="f-img"></span>
+                </td>
+                <td routerLink="/add-shop/{{doctor}}">
+                    <span class="text">DOCTOR</span><span><img src="assets/doctor.jpg" class="f-img"></span>
+                </td>
+                <td routerLink="/add-shop/{{contractor}}">
+                    <span class="text">CONTRACTOR</span><span><img src="assets/contractor.jpg" class="f-img"></span>
+                </td>
+            </tr>
+            <tr>
+                <td routerLink="/add-shop/{{consultant}}">
+                    <span class="text">CONSULTANT</span><span><img src="assets/consultant.jpg" class="f-img"></span>
+                </td>
+                <td routerLink="/add-shop/{{education}}">
+                    <span class="text">EDUCATION</span><span><img src="assets/education.jpg" class="f-img"></span>
+                </td>
+                <td routerLink="/add-shop/{{estate}}">
+                    <span class="text">REAL ESTATE &nbsp;</span><span><img src="assets/real-estate home.jpg"
+                            class="f-img"></span>
+                </td>
+            </tr>
+            <tr>
+                <td routerLink="/">
+                    <span class="text">REPAIR &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span><img
+                            src="assets/repair.jpg" class="f-img"></span>
+                </td>
+                <td routerLink="/">
+                    <span class="text">LOAN &nbsp;&nbsp;&nbsp;&nbsp;</span><span><img src="assets/loan.jpg"
+                            class="f-img"></span>
+                </td>
+                <td routerLink="/add-shop/{{vehicle}}">
+                    <span class="text">VEHICLE &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span><span><img
+                            src="assets/vehicle.jpg" class="f-img"></span>
+                </td>
+            </tr>
+            <tr>
+                <td routerLink="/add-shop/{{travel}}">
+                    <span class="text">Travellers &nbsp;&nbsp;&nbsp;</span><span><img src="assets/all/bus.jpg"
+                            class="f-img"></span>
+                </td>
+                <td routerLink="/add-shop/{{decoration}}">
+                    <span class="text">DECORATION</span><span><img src="assets/decoration.jpg" class="f-img"></span>
+                </td>
+                <td routerLink="/add-shop/{{beauty}}">
+                    <span class="text">BEAUTY</span><span><img src="assets/beauty.jpg" class="f-img"></span>
+                </td>
+            </tr>
+        </table>
+    </div>
+</div>
+<div style="margin-top: 50px;"></div>
+<app-footer></app-footer>

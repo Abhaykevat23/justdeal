@@ -1,0 +1,17 @@
+<div class="login">
+    <h1>Sign-Up</h1>
+    <form class="common-form" [formGroup]="addform" (ngSubmit)="signup(addform)">
+        <input type="text" class="form-input" placeholder="Enter Name" formControlName="name" name="name"><span
+            style="color:red" *ngIf="name && name.invalid && name.touched"> Character only & Minimum 3 Character</span>
+        <input type="text" class="form-input" placeholder="Enter City" formControlName="city" name="city"><span
+            style="color:red" *ngIf="city && city.invalid && city.touched"> Character only & Minimum 4 Character</span>
+        <input type="email" class="form-input" placeholder="Enter Email" formControlName="email" name="email"><span
+            style="color:red" *ngIf="email && email.invalid && email.touched"> Write correct email & Minimum 12
+            Character</span>
+        <input type="password" class="form-input" placeholder="Enter Password" formControlName="password"
+            name="password"> <span style="color:red" *ngIf="password && password.invalid && password.touched"> Number
+            only & Minimum 4 Number</span>
+        <button class="form-button" type="submit" [disabled]="addform.invalid">Sign Up</button>
+    </form>
+    <p> Already Sign-Up ! &nbsp;&nbsp;&nbsp;<a routerLink="/app-login">Login</a></p>
+</div>

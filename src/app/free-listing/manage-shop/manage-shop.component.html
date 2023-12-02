@@ -1,0 +1,181 @@
+<div class="container">
+  <div class="nav">
+    <h1>Manage Shop's</h1>
+
+    <form>
+      <mat-form-field appearance="fill" class="selection">
+        <mat-label>Select Field</mat-label>
+        <mat-select [(ngModel)]="selectedValue" name="food" (selectionChange)="selected()">
+          <mat-option value="" selected>Choose</mat-option>
+          <mat-option value="travel">Travel</mat-option>
+          <mat-option value="doctor">Doctor</mat-option>
+          <mat-option value="restaurant">Restaurant</mat-option>
+          <mat-option value="contractor">Contractor</mat-option>
+          <mat-option value="consultant">Consultant</mat-option>
+          <mat-option value="decoration">Decoration</mat-option>
+          <mat-option value="vehicle">Vehicle</mat-option>
+          <mat-option value="real-estate">Real-Estate</mat-option>
+          <mat-option value="beauty">Beauty</mat-option>
+          <mat-option value="education">Education</mat-option>
+        </mat-select>
+      </mat-form-field>
+    </form>
+  </div>
+
+
+  <div>
+    <form *ngIf="dtravel">
+      <div class="card" *ngFor="let shop of travels" >
+        <div><img class="card-img-top" src="../../../assets/all/{{shop.image}}" alt="Card image cap"></div>
+        <div class="card-body">
+          <h2 class="card-title"><b>{{shop.traveller}}</b> </h2><br><br>
+          <p class="card-text">Mobile No : <b>{{shop.mobile}}</b></p>
+          <p class="card-text">City : <b>{{shop.city}}</b></p>
+          <p class="card-text">Price : <b>{{shop.price}}</b></p>
+          <a class="btn btn-primary" routerLink="/edit-travel/{{shop.id}}" >Edit </a> &nbsp;<a class="btn btn-warning" (click)="deletetravel(shop)">Delete</a>
+          <!-- ----------- >>>>  <<<< -------- this is also comment  -->
+        </div>
+      </div>
+    </form>
+    
+    <form style="margin-left: 30px;" *ngIf="ddoctor">
+      <div class="card" *ngFor="let shop2 of doctors">
+        <img class="card-img-top" src="../../../assets/all/{{shop2.image}}" alt="Card image cap">
+        <div class="card-body">
+          <h5 class="card-title">Name : <b>{{shop2.name}}</b> </h5>
+          <h6 class="card-title">Field : <b>{{shop2.field}}</b> </h6>
+          <p class="card-text">Mobile No : <b>{{shop2.mobile}}</b></p>
+          <p class="card-text">City : <b>{{shop2.city}}</b></p>
+          <p class="card-text">Address : <b>{{shop2.address}}</b></p>
+          <p class="card-text">Time : <b>{{shop2.time}}</b></p>
+          <p class="card-text">Sunday : <b>{{shop2.sunday}}</b></p>
+          <a class="btn btn-primary" routerLink="/edit-doctor/{{shop2.id}}" >Edit </a>&nbsp;<a class="btn btn-warning" (click)="deletedoctor(shop2)">Delete</a>
+        </div>
+      </div>
+    </form>
+
+
+    <form style="margin-left: 30px;" *ngIf="dhotel">
+      <div class="card" *ngFor="let shop3 of hotels">
+        <img class="card-img-top" src="../../../assets/all/{{shop3.image}}" alt="Card image cap">
+        <div class="card-body">
+          <h5 class="card-title">Name : <b>{{shop3.hotelname}}</b> </h5>
+          <p class="card-text">Mobile No : <b>{{shop3.mobile}}</b></p>
+          <p class="card-text">City : <b>{{shop3.city}}</b></p>
+          <p class="card-text">Address : <b>{{shop3.address}}</b></p>
+          <p class="card-text">Time : <b>{{shop3.time}}</b></p>
+          <p class="card-text">Veg/NonVeg : <b>{{shop3.veg}}</b></p>
+          <a class="btn btn-primary" routerLink="/edit-hotel/{{shop3.id}}" >Edit </a>&nbsp;<a class="btn btn-warning" (click)="deletehotel(shop3)">Delete</a>
+        </div>
+      </div>
+    </form>
+
+    <form style="margin-left: 30px;" *ngIf="dvehicle">
+      <div class="card" *ngFor="let shop4 of vehicles">
+        <img class="card-img-top" src="../../../assets/all/{{shop4.image}}" alt="Card image cap">
+        <div class="card-body">
+          <h5 class="card-title">Name : <b>{{shop4.vehiclename}}</b> </h5>
+          <p class="card-text">Mobile No : <b>{{shop4.mobile}}</b></p>
+          <p class="card-text">City : <b>{{shop4.city}}</b></p>
+          <p class="card-text">Address : <b>{{shop4.address}}</b></p>
+          <p class="card-text">Time : <b>{{shop4.time}}</b></p>
+          <p class="card-text">Bike / Car : <b>{{shop4.field}}</b></p>
+          <a class="btn btn-primary" routerLink="/edit-vehicle/{{shop4.id}}" >Edit </a>&nbsp;<a class="btn btn-warning" (click)="deletevehicle(shop4)">Delete</a>
+        </div>
+      </div>
+    </form>
+
+    <form style="margin-left: 30px;" *ngIf="deducation">
+      <div class="card" *ngFor="let shop5 of educations">
+        <img class="card-img-top" src="../../../assets/all/{{shop5.image}}" alt="Card image cap">
+        <div class="card-body">
+          <h5 class="card-title">Name : <b>{{shop5.schoolname}}</b> </h5>
+          <p class="card-text">Mobile No : <b>{{shop5.mobile}}</b></p>
+          <p class="card-text">City : <b>{{shop5.city}}</b></p>
+          <p class="card-text">Address : <b>{{shop5.address}}</b></p>
+          <p class="card-text">Time : <b>{{shop5.time}}</b></p>
+          <p class="card-text">School / College / Computer Class : <b>{{shop5.field}}</b></p>
+          <a class="btn btn-primary" routerLink="/edit-education/{{shop5.id}}" >Edit </a>&nbsp;<a class="btn btn-warning" (click)="deleteeducation(shop5)">Delete</a>
+        </div>
+      </div>
+    </form>
+
+    <form style="margin-left: 30px;" *ngIf="dconsultant">
+      <div class="card" *ngFor="let shop6 of consultants">
+        <img class="card-img-top" src="../../../assets/all/{{shop6.image}}" alt="Card image cap">
+        <div class="card-body">
+          <h5 class="card-title">Name : <b>{{shop6.lawyername}}</b> </h5>
+          <p class="card-text">Mobile No : <b>{{shop6.mobile}}</b></p>
+          <p class="card-text">City : <b>{{shop6.city}}</b></p>
+          <p class="card-text">Address : <b>{{shop6.address}}</b></p>
+          <p class="card-text">Time : <b>{{shop6.time}}</b></p>
+          <p class="card-text">Charge : <b>{{shop6.price}}</b></p>
+          <p class="card-text">Sunday : <b>{{shop6.sunday}}</b></p>
+          <a class="btn btn-primary" routerLink="/edit-consultant/{{shop6.id}}" >Edit </a>&nbsp;<a class="btn btn-warning" (click)="deleteconsultant(shop6)">Delete</a>
+        </div>
+      </div>
+    </form>
+
+    <form style="margin-left: 30px;" *ngIf="dcontractor">
+      <div class="card" *ngFor="let shop7 of contractors">
+        <img class="card-img-top" src="../../../assets/all/{{shop7.image}}" alt="Card image cap">
+        <div class="card-body">
+          <h5 class="card-title">Name : <b>{{shop7.contractorname}}</b> </h5>
+          <p class="card-text">Mobile No : <b>{{shop7.mobile}}</b></p>
+          <p class="card-text">City : <b>{{shop7.city}}</b></p>
+          <p class="card-text">Address : <b>{{shop7.address}}</b></p>
+          <p class="card-text">Time : <b>{{shop7.time}}</b></p>
+          <p class="card-text">Builder / Architech : <b>{{shop7.field}}</b></p>
+          <a class="btn btn-primary" routerLink="/edit-contractor/{{shop7.id}}" >Edit </a>&nbsp;<a class="btn btn-warning" (click)="deletecontractor(shop7)">Delete</a>
+        </div>
+      </div>
+    </form>
+
+    <form style="margin-left: 30px;" *ngIf="ddecoration">
+      <div class="card" *ngFor="let shop8 of decorations">
+        <img class="card-img-top" src="../../../assets/all/{{shop8.image}}" alt="Card image cap">
+        <div class="card-body">
+          <h5 class="card-title">Name : <b>{{shop8.decoratorname}}</b> </h5>
+          <p class="card-text">Mobile No : <b>{{shop8.mobile}}</b></p>
+          <p class="card-text">City : <b>{{shop8.city}}</b></p>
+          <p class="card-text">Address : <b>{{shop8.address}}</b></p>
+          <p class="card-text">Time : <b>{{shop8.time}}</b></p>
+          <p class="card-text">Bike / Car : <b>{{shop8.field}}</b></p>
+          <a class="btn btn-primary" routerLink="/edit-decoration/{{shop8.id}}" >Edit </a>&nbsp;<a class="btn btn-warning" (click)="deletedecoration(shop8)">Delete</a>
+        </div>
+      </div>
+    </form>
+
+    <form style="margin-left: 30px;" *ngIf="dbeauty">
+      <div class="card" *ngFor="let shop9 of beauties">
+        <img class="card-img-top" src="../../../assets/all/{{shop9.image}}" alt="Card image cap">
+        <div class="card-body">
+          <h5 class="card-title">Name : <b>{{shop9.beautyname}}</b> </h5>
+          <p class="card-text">Mobile No : <b>{{shop9.mobile}}</b></p>
+          <p class="card-text">City : <b>{{shop9.city}}</b></p>
+          <p class="card-text">Address : <b>{{shop9.address}}</b></p>
+          <p class="card-text">Time : <b>{{shop9.time}}</b></p>
+          <p class="card-text">Boys / Girls / Family : <b>{{shop9.field}}</b></p>
+          <a class="btn btn-primary" routerLink="/edit-beauty/{{shop9.id}}" >Edit </a>&nbsp;<a class="btn btn-warning" (click)="deletebeauty(shop9)">Delete</a>
+        </div>
+      </div>
+    </form>
+
+    <form style="margin-left: 30px;" *ngIf="destate">
+      <div class="card" *ngFor="let shop10 of estates">
+        <img class="card-img-top" src="../../../assets/all/{{shop10.image}}" alt="Card image cap">
+        <div class="card-body">
+          <h5 class="card-title">Name : <b>{{shop10.estatename}}</b> </h5>
+          <p class="card-text">Mobile No : <b>{{shop10.mobile}}</b></p>
+          <p class="card-text">City : <b>{{shop10.city}}</b></p>
+          <p class="card-text">Address : <b>{{shop10.address}}</b></p>
+          <p class="card-text">Time : <b>{{shop10.time}}</b></p>
+          <p class="card-text">Buy / Rent : <b>{{shop10.field}}</b></p>
+          <a class="btn btn-primary" routerLink="/edit-estate/{{shop10.id}}" >Edit </a>&nbsp;<a class="btn btn-warning" (click)="deleteestate(shop10)">Delete</a>
+        </div>
+      </div>
+    </form>
+    
+
+  </div>
+</div>

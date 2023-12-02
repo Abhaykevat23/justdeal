@@ -1,0 +1,50 @@
+<head>
+    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
+</head>
+
+<body>
+<div class="container">
+<div class="forms">
+    <div class="form signup">
+    <span class="title">Listner Registration</span>
+    <form [formGroup]="addform" (ngSubmit)="shopusersignup(addform)">
+        <div class="input-field">
+            <input type="text" placeholder="Enter your name" formControlName="name" name="name">
+            <i class="uil uil-user"></i>
+        </div>
+        <span style="color:red" *ngIf="name && name.invalid && name.touched"> Character only & Minimum 3 Character</span>
+        
+        <div class="input-field">
+            <input type="text" placeholder="Enter your email" formControlName="email" name="email" >
+            <i class="uil uil-envelope icon"></i>
+        </div>
+        <span style="color:red" *ngIf="email && email.invalid && email.touched"> Minimum 10 Character </span>
+
+        <!-- <div class="radio" style="margin-top: 30px;font-size: 20px;">
+            <mat-radio-group formControlName="sub" name="sub">
+                &nbsp;&nbsp;&nbsp;<mat-radio-button value="free">Free</mat-radio-button>&nbsp;&nbsp;&nbsp;
+                <mat-radio-button value="paid">Paid ($7/Month)</mat-radio-button>
+            </mat-radio-group>
+        </div>
+        <span style="color:red" *ngIf="sub && sub.invalid && sub.touched"> Select One</span> -->
+
+        <div class="input-field">
+            <input type="password" class="password" placeholder="Create a password"
+                formControlName="password" name="password" >
+            <i class="uil uil-lock icon"></i>
+        </div>
+        <span style="color:red" *ngIf="password && password.invalid && password.touched"> Number only & Minimum 4 Number</span>
+
+        <div class="input-field button">
+            <button type="submit" [disabled]="addform.invalid" class="btn btn-primary" style="font-size: 25px;margin-left: 110px;padding: 10px;width: 140px;">Signup</button>
+        </div>
+    </form>
+    <div class="login-signup">
+        <span class="text">Already a member?
+            <a class="text login-link" routerLink="/shoplogin">Login Now</a>
+        </span>
+    </div>
+    </div>
+</div>
+</div>
+</body>

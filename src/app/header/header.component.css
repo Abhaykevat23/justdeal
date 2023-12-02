@@ -1,0 +1,69 @@
+h1{
+    font-size: 50px;
+}
+.header{
+    display: flex;
+    margin-left: 0px;
+}
+.heading{
+    display: flex;
+    margin-left: 190px;
+    margin-top: 10px;
+}
+/* .search{
+    border-radius: 10px;
+    width: 200px;
+    font-size: 25px;
+    padding: 5px;
+    background: transparent;
+    border: 1px solid blue;
+    color: blue;
+} */
+.menu{
+    margin-left: 180px;
+    padding: 15px;
+    padding-top: 15px;
+    font-size: 20px;
+}
+select{
+    /* -webkit-appearance: none; */
+    width: 200px;
+}
+.login{
+    margin-left: 0px;
+    padding: 15px;
+    font-size: 20px;
+    cursor: pointer;
+}
+#btn{
+    height: 50px;
+    width: 100px;
+    margin-left: 100px;
+    margin-top: 15px;
+    font-size: 25px;
+}
+#item{
+    background: none;
+    border: none;
+}
+#dropdown button{
+    font-size: 25px;
+}
+#dropdown a{
+    font-size: 25px;
+    background-color: rgb(6, 131, 240);
+    color: white;
+    border-left: 6px solid black;
+    border-radius: 10px;
+    margin-top: 10px;
+    padding: 3px;
+}
+.dark{
+    height: 50px;
+    width: 100px;
+    margin-top: 10px;
+    margin-left: 120px;
+    border-radius: 20px;
+    border: 2px solid white;
+    font-size: 25px;
+}

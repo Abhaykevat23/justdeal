@@ -1,0 +1,15 @@
+<section class="wrapper col-12">
+    <input type="search" name="search" class="search" placeholder="Search Restaurant" [(ngModel)]="searchhotel" >
+  <div class="row">
+    <div class="loop col-6 " *ngFor="let hotel of hotels | filter:searchhotel">
+      <div class="card text-bg-primary" >
+        <img src="../../../assets/all/{{hotel.image}}" class="f-img">
+        <h1>{{hotel.hotelname}}</h1>
+        <p class="price">{{hotel.veg}}</p>
+        <p >{{hotel.address}}</p>
+        <p>City : {{hotel.city}}</p>
+        <p><button (click)="transfer(hotel.id)" >Book</button></p>
+      </div>
+    </div>
+  </div>
+</section>

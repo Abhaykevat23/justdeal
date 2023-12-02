@@ -1,0 +1,374 @@
+<nav class="navbar navbar-expand-lg bg-body-tertiary">
+  <div class="container-fluid" style="margin-left: 50px;margin-right: 50px;">
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <mat-chip-listbox>
+        <mat-chip-option style="font-size:30px;padding: 5px;font-weight: 600;" (click)="admin()">Admin
+          Penel</mat-chip-option>
+        <mat-chip-option (click)="Restaurant()">Restaurant</mat-chip-option>
+        <mat-chip-option (click)="Doctor()">Doctor</mat-chip-option>
+        <mat-chip-option (click)="Contractor()">Contractor</mat-chip-option>
+        <mat-chip-option (click)="Consultant()">Consultant</mat-chip-option>
+        <mat-chip-option (click)="Travel()">Travel</mat-chip-option>
+        <mat-chip-option (click)="Realestate()">Real-Estate</mat-chip-option>
+        <mat-chip-option (click)="Vehicle()">Vehicle</mat-chip-option>
+        <mat-chip-option (click)="Beauty()">Beauty</mat-chip-option>
+        <mat-chip-option (click)="Education()">Education</mat-chip-option>
+        <mat-chip-option (click)="Decoration()">Decoration</mat-chip-option>
+      </mat-chip-listbox>
+    </div>
+  </div>
+</nav>
+<section class="container-fluid" style="padding-left: 60px;padding-right: 90px;">
+  <form *ngIf="dtravel">
+    <table class="table table-hover" style="color:blue;font-size: 20px;">
+      <thead>
+        <tr><input type="search" name="search" class="search" placeholder="Search Traveller"
+            [(ngModel)]="searchtraveller"></tr>
+        <tr>
+          <th style="width:10px">Sr. NO</th>
+          <th>TRAVELLER</th>
+          <th>CITY</th>
+          <th>MOBILE</th>
+          <th>PRICE</th>
+          <th> ACTION'S</th>
+        </tr>
+      </thead>
+      <tbody *ngFor="let travel of travels | orderBy:'traveller' | filter:searchtraveller;let i =index;">
+        <tr>
+          <th>{{i+1}}</th>
+          <td>{{travel.traveller}}</td>
+          <td>{{travel.city}}</td>
+          <td>{{travel.mobile}}</td>
+          <td>Rs. {{travel.price}}</td>
+          <td><a href="edit-travel/{{travel.id}}" class="btn btn-primary "> Edit </a> &nbsp;&nbsp; <button
+              (click)="deletetravel(travel)" class="btn btn-danger"> Delete </button> </td>
+        </tr>
+      </tbody>
+    </table>
+    <button routerLink="/add-travel" style="margin-left: 700px;">ADD NEW</button>
+  </form>
+
+  <form *ngIf="ddoctor">
+    <table class="table table-hover" style="color:blue;font-size: 20px;">
+      <thead>
+        <tr><input type="search" name="search" class="search" placeholder="Search Doctor" [(ngModel)]="searchdoctor">
+        </tr>
+        <tr>
+          <th style="width:0px">Sr. NO</th>
+          <th>Field</th>
+          <th>Doctor</th>
+          <th>Time</th>
+          <th>Sunday</th>
+          <th>Mobile</th>
+          <th>CITY</th>
+          <th> ACTION'S</th>
+        </tr>
+      </thead>
+      <tbody *ngFor="let doctor of doctors | orderBy:'doctor' | filter:searchdoctor;let i =index;">
+        <tr>
+          <th>{{i+1}}</th>
+          <td>{{doctor.field}}</td>
+          <td>{{doctor.name}}</td>
+          <td>{{doctor.time}}</td>
+          <td>{{doctor.sunday}}</td>
+          <td>{{doctor.mobile}}</td>
+          <td>{{doctor.city}}</td>
+          <td><a href="edit-doctor/{{doctor.id}}" class="btn btn-primary "> Edit </a> &nbsp;&nbsp; <button
+              (click)="deletedoctor(doctor)" class="btn btn-danger"> Delete </button> </td>
+        </tr>
+      </tbody>
+    </table>
+    <button routerLink="/add-doctor" style="margin-left: 700px;">ADD NEW</button>
+  </form>
+
+  <form *ngIf="drestaurant">
+    <table class="table table-hover" style="color:blue;font-size: 20px;">
+      <thead>
+        <tr><input type="search" name="search" class="search" placeholder="Search Doctor" [(ngModel)]="searchhotel">
+        </tr>
+        <tr>
+          <th style="width:0px">Sr. NO</th>
+          <th>Name</th>
+          <th>Type</th>
+          <th>Time</th>
+          <th>City</th>
+          <th>Mobile</th>
+          <th>Address</th>
+          <th> ACTION'S</th>
+        </tr>
+      </thead>
+      <tbody *ngFor="let hotel of hotels | orderBy:'hotel' | filter:searchhotel;let i =index;">
+        <tr>
+          <th>{{i+1}}</th>
+          <td>{{hotel.hotelname}}</td>
+          <td>{{hotel.veg}}</td>
+          <td>{{hotel.time}}</td>
+          <td>{{hotel.city}}</td>
+          <td>{{hotel.mobile}}</td>
+          <td>{{hotel.address}}</td>
+          <td><a href="edit-hotel/{{hotel.id}}" class="btn btn-primary "> Edit </a> &nbsp;&nbsp; <button
+              (click)="deletehotel(hotel)" class="btn btn-danger"> Delete </button> </td>
+        </tr>
+      </tbody>
+    </table>
+    <button routerLink="/add-hotel" style="margin-left: 700px;">ADD NEW</button>
+  </form>
+
+
+  <form *ngIf="dcontractor">
+    <table class="table table-hover" style="color:blue;font-size: 20px;">
+      <thead>
+        <tr><input type="search" name="search" class="search" placeholder="Search Doctor" [(ngModel)]="searchcontractor">
+        </tr>
+        <tr>
+          <th style="width:0px">Sr. NO</th>
+          <th>Name</th>
+          <th>Type</th>
+          <th>Time</th>
+          <th>City</th>
+          <th>Mobile</th>
+          <th>Address</th>
+          <th> ACTION'S</th>
+        </tr>
+      </thead>
+      <tbody *ngFor="let contractor of contractors | orderBy:'contractor' | filter:searchcontractor;let i =index;">
+        <tr>
+          <th>{{i+1}}</th>
+          <td>{{contractor.contractorname}}</td>
+          <td>{{contractor.field}}</td>
+          <td>{{contractor.time}}</td>
+          <td>{{contractor.city}}</td>
+          <td>{{contractor.mobile}}</td>
+          <td>{{contractor.address}}</td>
+          <td><a href="edit-contractor/{{contractor.id}}" class="btn btn-primary "> Edit </a> &nbsp;&nbsp; <button
+              (click)="deletecontractor(contractor)" class="btn btn-danger"> Delete </button> </td>
+        </tr>
+      </tbody>
+    </table>
+  </form>
+
+
+  <form *ngIf="dconsultant">
+    <table class="table table-hover" style="color:blue;font-size: 20px;">
+      <thead>
+        <tr><input type="search" name="search" class="search" placeholder="Search Doctor" [(ngModel)]="searchconsultant">
+        </tr>
+        <tr>
+          <th style="width:0px">Sr. NO</th>
+          <th>Name</th>
+          <th>Time</th>
+          <th>City</th>
+          <th>Mobile</th>
+          <th>Address</th>
+          <th> ACTION'S</th>
+        </tr>
+      </thead>
+      <tbody *ngFor="let consultant of consultants | orderBy:'consultant' | filter:searchconsultant;let i =index;">
+        <tr>
+          <th>{{i+1}}</th>
+          <td>{{consultant.lawyername}}</td>
+          <td>{{consultant.time}}</td>
+          <td>{{consultant.city}}</td>
+          <td>{{consultant.mobile}}</td>
+          <td>{{consultant.address}}</td>
+          <td><a href="edit-consultant/{{consultant.id}}" class="btn btn-primary "> Edit </a> &nbsp;&nbsp; <button
+              (click)="deleteconsultant(consultant)" class="btn btn-danger"> Delete </button> </td>
+        </tr>
+      </tbody>
+    </table>
+  </form>
+
+
+  <form *ngIf="drealestate">
+    <table class="table table-hover" style="color:blue;font-size: 20px;">
+      <thead>
+        <tr><input type="search" name="search" class="search" placeholder="Search Doctor" [(ngModel)]="searchestate">
+        </tr>
+        <tr>
+          <th style="width:0px">Sr. NO</th>
+          <th>Name</th>
+          <th>Type</th>
+          <th>Time</th>
+          <th>City</th>
+          <th>Mobile</th>
+          <th>Address</th>
+          <th> ACTION'S</th>
+        </tr>
+      </thead>
+      <tbody *ngFor="let estate of estates | orderBy:'estate' | filter:searchestate;let i =index;">
+        <tr>
+          <th>{{i+1}}</th>
+          <td>{{estate.estatename}}</td>
+          <td>{{estate.field}}</td>
+          <td>{{estate.time}}</td>
+          <td>{{estate.city}}</td>
+          <td>{{estate.mobile}}</td>
+          <td>{{estate.address}}</td>
+          <td><a href="edit-estate/{{estate.id}}" class="btn btn-primary "> Edit </a> &nbsp;&nbsp; <button
+              (click)="deleteestate(estate)" class="btn btn-danger"> Delete </button> </td>
+        </tr>
+      </tbody>
+    </table>
+  </form>
+
+
+  <form *ngIf="dvehicle">
+    <table class="table table-hover" style="color:blue;font-size: 20px;">
+      <thead>
+        <tr><input type="search" name="search" class="search" placeholder="Search Doctor" [(ngModel)]="searchvehicle">
+        </tr>
+        <tr>
+          <th style="width:0px">Sr. NO</th>
+          <th>Name</th>
+          <th>Type</th>
+          <th>Time</th>
+          <th>City</th>
+          <th>Mobile</th>
+          <th>Address</th>
+          <th> ACTION'S</th>
+        </tr>
+      </thead>
+      <tbody *ngFor="let vehicle of vehicles | orderBy:'vehicle' | filter:searchvehicle;let i =index;">
+        <tr>
+          <th>{{i+1}}</th>
+          <td>{{vehicle.vehiclename}}</td>
+          <td>{{vehicle.field}}</td>
+          <td>{{vehicle.time}}</td>
+          <td>{{vehicle.city}}</td>
+          <td>{{vehicle.mobile}}</td>
+          <td>{{vehicle.address}}</td>
+          <td><a href="edit-vehicle/{{vehicle.id}}" class="btn btn-primary "> Edit </a> &nbsp;&nbsp; <button
+              (click)="deletevehicle(vehicle)" class="btn btn-danger"> Delete </button> </td>
+        </tr>
+      </tbody>
+    </table>
+  </form>
+
+
+  <form *ngIf="dbeauty">
+    <table class="table table-hover" style="color:blue;font-size: 20px;">
+      <thead>
+        <tr><input type="search" name="search" class="search" placeholder="Search Doctor" [(ngModel)]="searchbeauty">
+        </tr>
+        <tr>
+          <th style="width:0px">Sr. NO</th>
+          <th>Name</th>
+          <th>Type</th>
+          <th>Time</th>
+          <th>City</th>
+          <th>Mobile</th>
+          <th>Address</th>
+          <th> ACTION'S</th>
+        </tr>
+      </thead>
+      <tbody *ngFor="let beauty of beauties | orderBy:'beauty' | filter:searchbeauty;let i =index;">
+        <tr>
+          <th>{{i+1}}</th>
+          <td>{{beauty.beautyname}}</td>
+          <td>{{beauty.field}}</td>
+          <td>{{beauty.time}}</td>
+          <td>{{beauty.city}}</td>
+          <td>{{beauty.mobile}}</td>
+          <td>{{beauty.address}}</td>
+          <td><a href="edit-beauty/{{beauty.id}}" class="btn btn-primary "> Edit </a> &nbsp;&nbsp; <button
+              (click)="deletebeauty(beauty)" class="btn btn-danger"> Delete </button> </td>
+        </tr>
+      </tbody>
+    </table>
+
+  </form>
+
+
+  <form *ngIf="deducation">
+    <table class="table table-hover" style="color:blue;font-size: 20px;">
+      <thead>
+        <tr><input type="search" name="search" class="search" placeholder="Search Doctor" [(ngModel)]="searcheducation">
+        </tr>
+        <tr>
+          <th style="width:0px">Sr. NO</th>
+          <th>Name</th>
+          <th>Type</th>
+          <th>Time</th>
+          <th>City</th>
+          <th>Mobile</th>
+          <th>Address</th>
+          <th> ACTION'S</th>
+        </tr>
+      </thead>
+      <tbody *ngFor="let education of educations | orderBy:'education' | filter:searcheducation;let i =index;">
+        <tr>
+          <th>{{i+1}}</th>
+          <td>{{education.schoolname}}</td>
+          <td>{{education.field}}</td>
+          <td>{{education.time}}</td>
+          <td>{{education.city}}</td>
+          <td>{{education.mobile}}</td>
+          <td>{{education.address}}</td>
+          <td><a href="edit-education/{{education.id}}" class="btn btn-primary "> Edit </a> &nbsp;&nbsp; <button
+              (click)="deleteeducation(education)" class="btn btn-danger"> Delete </button> </td>
+        </tr>
+      </tbody>
+    </table>
+  </form>
+
+
+  <form *ngIf="ddecoration">
+    <table class="table table-hover" style="color:blue;font-size: 20px;">
+      <thead>
+        <tr><input type="search" name="search" class="search" placeholder="Search Doctor" [(ngModel)]="searchdecoration">
+        </tr>
+        <tr>
+          <th style="width:0px">Sr. NO</th>
+          <th>Name</th>
+          <th>Time</th>
+          <th>City</th>
+          <th>Mobile</th>
+          <th>Address</th>
+          <th> ACTION'S</th>
+        </tr>
+      </thead> 
+      <tbody *ngFor="let decorator of decorators | orderBy:'decorator' | filter:searchdecoration;let i =index;">
+        <tr>
+          <th>{{i+1}}</th>
+          <td>{{decorator.decoratorname}}</td>
+          <td>{{decorator.time}}</td>
+          <td>{{decorator.city}}</td>
+          <td>{{decorator.mobile}}</td>
+          <td>{{decorator.address}}</td>
+          <td><a href="edit-decorator/{{decorator.id}}" class="btn btn-primary "> Edit </a> &nbsp;&nbsp; <button
+              (click)="deletedecorator(decorator)" class="btn btn-danger"> Delete </button> </td>
+        </tr>
+      </tbody>
+    </table>
+  </form>
+
+
+  <form *ngIf="dadmin">
+    <h2>Shop Request</h2>
+    <input type="search" name="search" class="search" placeholder="Search " [(ngModel)]="searchrequest">
+
+    <div class="row">
+      <div class="col-sm-6" *ngFor="let permission of permissions | filter : searchrequest" style="margin-top: 20px;">
+        <div class="card" style="background-color: rgb(80, 155, 155);">
+
+          <div class="card-body" >
+            <h3 class="card-title"><b><u>{{permission.shopfield}}</u></b></h3>
+            <h4 class="card-title"><b>{{permission.field}}</b></h4>
+            <h5 class="card-title">Shop Name : <b>{{permission.name}}{{permission.traveller}}{{permission.hotelname}}
+              {{permission.contractorname}}{{permission.lawyername}}{{permission.vehiclename}}{{permission.schoolname}}
+            {{permission.beautyname}}{{permission.estatename}}{{permission.decoratorname}}</b></h5>
+            <p class="card-text">Address : <b>{{permission.address}}</b> </p>
+            <p class="card-text" *ngIf="permission.price">Price : <b>{{permission.price}}</b> </p>
+            <p class="card-text" *ngIf="permission.veg">Veg : <b>{{permission.veg}}</b> </p>
+            <p class="card-text">Mobile No. : <b>{{permission.mobile}}</b> </p>
+            <p class="card-text">User Email : <b>{{permission.user}}</b> </p>
+            <p class="card-text">City : <b>{{permission.city}}</b> </p>
+            <button (click)="approve(permission.id)" class="btn btn-primary">Approve Shop</button>&nbsp; <button (click)="reject(permission.id,permission.user)" class="btn btn-danger" >Reject Shop</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </form>
+
+
+</section>

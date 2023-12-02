@@ -1,0 +1,24 @@
+nav{
+    font-size: 25px;
+}
+mat-chip-option:hover{
+    background-color: greenyellow;
+    box-shadow: 0 0 10px black;
+}
+.search{
+    font-size: 18px;
+    border-radius:10px;
+    border-width:1px;
+    font-weight: 500;
+    margin-left: 10px;
+}
+.search::placeholder{
+    padding-left: 10px;
+}
+.search-button{
+    font-size: 18px;
+    border-radius:10px;
+    border-width:1px;
+    font-weight: 500;
+    margin-left: 10px;
+}

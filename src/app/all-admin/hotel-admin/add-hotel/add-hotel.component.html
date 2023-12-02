@@ -1,0 +1,44 @@
+<form [formGroup]="addhotelform"  >
+    <div class="col-md-4">
+        <label for="input" class="form-label">Hotel Name</label>
+        <input type="text" class="form-control" id="input" formControlName="hotelname" name="hotelname">
+        <span style="color:red" *ngIf="hotelname && hotelname.invalid && hotelname.touched"> Character only & Minimum 3 Character</span>
+    </div>
+    <div class="col-md-4">
+        <label for="input" class="form-label">Image</label>
+        <input type="file" class="form-control" id="input" formControlName="image" name="image">
+    </div>
+    <div class="col-md-4">
+        <label for="input" class="form-label">City</label>
+        <input type="text" class="form-control" id="input" formControlName="city" name="city">
+        <span style="color:red" *ngIf="hotelcity && hotelcity.invalid && hotelcity.touched"> Character only & Minimum 4 Character</span>
+    </div>
+    <div class="col-md-4">
+        <label for="input" class="form-label">Mobile</label>
+        <input type="text" class="form-control" id="input" formControlName="mobile" name="mobile">
+        <span style="color:red" *ngIf="hotelmobile && hotelmobile.invalid && hotelmobile.touched"> Number only & Minimum 10 Character</span>
+    </div>
+    <div class="col-md-4">
+        <label for="input" class="form-label">Time</label>
+        <input type="text" class="form-control" id="input" formControlName="time" name="time">
+        <span style="color:red" *ngIf="hoteltime && hoteltime.invalid && hoteltime.touched"> Number only & Minimum 10 Character</span>
+    </div>
+    <div class="col-md-4">
+        <label for="input" class="form-label">Type <u>( Veg/NonVeg )</u> </label>
+        <br>
+        <mat-radio-group formControlName="veg" name="veg">
+            <mat-radio-button value="veg">Veg</mat-radio-button>
+            <mat-radio-button value="nonveg">NonVeg</mat-radio-button>
+        </mat-radio-group>
+        <span style="color:red" *ngIf="hotelveg && hotelveg.invalid && hotelveg.touched"> Select One</span>
+    </div>
+    <div class="col-6">
+        <label for="input" class="form-label">Address</label>
+        <input type="text" class="form-control" id="input" placeholder="Address" formControlName="address" name="address">
+        <span style="color:red" *ngIf="hoteladdress && hoteladdress.invalid && hoteladdress.touched"> Minimum 3 Character</span>
+    </div>
+    
+    <div class="col-md-6">
+        <button class="btn btn-primary" type="submit" (click)="add()" [disabled]="addhotelform.invalid" >ADD Hotel</button>
+    </div>
+</form>

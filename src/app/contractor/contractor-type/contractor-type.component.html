@@ -1,0 +1,15 @@
+<section class="wrapper col-12">
+    <div class="row">
+      <div class="loop col-4 " *ngFor="let contractor of contractors">
+        <div class="card text-bg-primary" >
+          <img src="../../../assets/all/{{contractor.image}}" >
+          <h1>Name : {{contractor.contractorname}}</h1>
+          <p class="price">Mobile : {{contractor.mobile}}</p>
+          <p>field : {{contractor.field}}</p>
+          <p>Time : {{contractor.time}}</p>
+          <p>Address : {{contractor.address}}</p>
+          <p><button (click)="transfer(contractor.id)" >Book</button></p>
+        </div>
+      </div>
+    </div>
+</section>

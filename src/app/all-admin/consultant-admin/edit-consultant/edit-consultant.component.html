@@ -1,0 +1,53 @@
+<form [formGroup]="editconsultant" style="margin-left: 50px;">
+    <input type="hidden" name="id" formControlName="id">
+    <div class="col-md-4">
+        <label for="input" class="form-label">consultant Name</label>
+        <input type="text" class="form-control" id="input" formControlName="lawyername" name="lawyername">
+        <span style="color:red" *ngIf="consultantname && consultantname.invalid && consultantname.touched"> Character only & Minimum 3 Character</span>
+    </div>
+    <div class="col-md-4">
+        <label for="input" class="form-label">Image &nbsp;&nbsp;</label>
+        <!-- <label style="color: red;"> * Reupload photo</label> -->
+        <input type="file" class="form-control" id="input" formControlName="image" name="image">
+    </div>
+    <div class="col-md-4">
+        <label for="input" class="form-label">time</label>
+        <input type="text" class="form-control" id="input" formControlName="time" name="time" placeholder="EX : 10:00 AM TO 10:00 PM">
+        <span style="color:red" *ngIf="consultanttime && consultanttime.invalid && consultanttime.touched"> FORMAT : [ 10-am to 10-pm ] & Minimum 10 Character</span>
+    </div>
+    <div class="col-md-4">
+        <label for="input" class="form-label">Address</label>
+        <input type="text" class="form-control" id="input" formControlName="address" name="address">
+        <span style="color:red" *ngIf="consultantaddress && consultantaddress.invalid && consultantaddress.touched" >  Minimum 10 & Maximum 40 Character</span>
+    </div>
+    <div class="col-md-4">
+        <label for="input" class="form-label">City</label>
+        <input type="text" class="form-control" id="input" formControlName="city" name="city">
+        <span style="color:red" *ngIf="consultantcity && consultantcity.invalid && consultantcity.touched"> Character only & Minimum 4 Character</span>
+    </div>
+    <div class="col-md-4">
+        <label for="input" class="form-label">Mobile No.</label>
+        <input type="text" class="form-control" id="input" formControlName="mobile" name="mobile">
+        <span style="color:red" *ngIf="consultantmobile && consultantmobile.invalid && consultantmobile.touched"> Number only & Minimum 10 Character</span>
+    </div>
+    <div class="col-md-4">
+        <label for="input" class="form-label">Charge</label>
+        <input type="text" class="form-control" id="input" formControlName="price" name="price">
+        <span style="color:red" *ngIf="consultantprice && consultantprice.invalid && consultantprice.touched"> Number only & Maximum 4 Character</span>
+    </div>
+
+    <div class="col-md-4">
+        <label for="input" class="form-label">sunday <u>( Open / Close )</u> </label>
+        <br>
+        <mat-radio-group formControlName="sunday" name="sunday">
+            <mat-radio-button value="open">Open</mat-radio-button>
+            <mat-radio-button value="close">Close</mat-radio-button>
+        </mat-radio-group>
+        <span style="color:red" *ngIf="consultantsunday && consultantsunday.invalid && consultantsunday.touched"> Select One</span>
+    </div>
+    
+    <div class="col-md-6">
+        <button class="btn btn-primary" type="submit" (click)="edit()" [disabled]="editconsultant.invalid" >Add consultant</button>
+    </div>
+</form>
+

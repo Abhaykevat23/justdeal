@@ -1,0 +1,15 @@
+<div class="login">
+    <h1>Login</h1>
+    <form class="common-form" [formGroup]="addform" (ngSubmit)="login(addform)">
+        <input type="email" class="form-input" placeholder="Enter Email" formControlName="email" name="email">
+        <span style="color:red" *ngIf="email && email.invalid && email.touched"> Write correct email & Minimum 12 Character</span>
+
+        <input type="password" class="form-input" placeholder="Enter Password" formControlName="password" name="password"> 
+        <span style="color:red" *ngIf="password && password.invalid && password.touched"> Number only & Minimum 4 Number</span>
+
+        <p> Forgot Password ! &nbsp;&nbsp;&nbsp;<a routerLink="/forgot">Receive on mail </a></p>
+        
+        <button class="form-button" type="submit" [disabled]="addform.invalid">Login</button>
+    </form>
+    <p> Don't Sign-Up ! &nbsp;&nbsp;&nbsp;<a routerLink="/signupform">Sign-Up</a></p>
+</div>

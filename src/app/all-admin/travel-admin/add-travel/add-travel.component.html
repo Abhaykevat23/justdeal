@@ -1,0 +1,30 @@
+<form [formGroup]="addform">
+    <div class="col-md-4">
+      <label for="input" class="form-label">Traveller</label>
+      <input type="text" class="form-control" id="input" formControlName="traveller">
+      <span style="color:red" *ngIf="traveller && traveller.invalid && traveller.touched"> Character only & Minimum 3 Character</span>
+    </div>
+    <div class="col-md-4">
+      <label for="input" class="form-label">Image</label>
+      <input type="file" class="form-control" id="input" formControlName="image">
+    </div>
+    <div class="col-md-4">
+      <label for="input" class="form-label">City</label>
+      <input type="text" class="form-control" id="input" formControlName="city">
+      <span style="color:red" *ngIf="city && city.invalid && city.touched"> Character only & Minimum 4 Character</span>
+    </div>
+    <div class="col-md-4">
+      <label for="input" class="form-label">Mobile</label>
+      <input type="text" class="form-control" id="input" formControlName="mobile">
+      <span style="color:red" *ngIf="mobile && mobile.invalid && mobile.touched"> Number only & Minimum 10 Character</span>
+    </div>
+    <div class="col-6">
+      <label for="input" class="form-label">Price</label>
+      <input type="number" class="form-control" id="input" placeholder="price" formControlName="price">
+      <span style="color:red" *ngIf="price && price.invalid && price.touched"> Number only & Minimum 3 Character</span>
+    </div>
+    <div class="col-md-6">
+      <button class="btn btn-primary" (click)="add()" [disabled]="addform.invalid">ADD BUS</button>
+    </div>
+  <button routerLink="/app-admin">SHOW DATA</button>
+</form>

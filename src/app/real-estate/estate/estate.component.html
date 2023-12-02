@@ -1,0 +1,15 @@
+<section class="wrapper col-12">
+    <div class="row">
+      <div class="loop col-4 " *ngFor="let estate of estates">
+        <div class="card text-bg-primary" >
+          <img src="../../../assets/all/{{estate.image}}" >
+          <h1>Name : {{estate.estatename}}</h1>
+          <p class="price">Mobile : {{estate.mobile}}</p>
+          <p>field : {{estate.field}}</p>
+          <p>Time : {{estate.time}}</p>
+          <p>Address : {{estate.address}}</p>
+          <p><button (click)="transfer(estate.id)" >Book</button></p>
+        </div>
+      </div>
+    </div>
+</section>

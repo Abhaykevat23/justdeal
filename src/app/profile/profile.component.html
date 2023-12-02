@@ -1,0 +1,16 @@
+<div class="container">
+    <h1>Profile Manage</h1>
+    <form class="form" [formGroup]="profileform" >
+        <input type="hidden" value="{{id}}">
+        <div class="col-md-6"><input type="text" class="form-control" placeholder="first name" 
+            formControlName="name"><span style="color:red" *ngIf="name && name.invalid && name.touched"> Character only & Minimum 3 Character</span></div>
+        <div class="col-md-6"><input type="text" class="form-control"  placeholder="city" formControlName="city"><span style="color:red" *ngIf="city && city.invalid && city.touched"> Character only & Minimum 4 Character</span>
+        </div>
+        <div class="col-md-6"><input type="text" class="form-control" placeholder="email"
+            formControlName="email"><span style="color:red" *ngIf="email && email.invalid && email.touched"> Write correct email & Minimum 12 Character</span></div>
+        <div class="col-md-6"><input type="text" class="form-control" placeholder="password"
+            formControlName="password"><span style="color:red" *ngIf="password && password.invalid && password.touched"> Number only & Minimum 4 Number</span></div>
+        <div class="mt-5 text-right"><button class="btn btn-primary profile-button" type="button" (click)="save()" [disabled]="profileform.invalid">Save Profile</button>
+        </div>
+    </form>
+</div>

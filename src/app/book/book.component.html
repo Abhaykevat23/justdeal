@@ -1,0 +1,864 @@
+<div class="wrapper">
+    <script src="https://use.fontawesome.com/a6f0361695.js"></script>
+    <div *ngIf="doctord">
+        <div class="detail">
+            <span class="shop name">Name : <b>{{things.name}}</b></span>
+            <span class="shop address">Address : <b>{{things.address}}</b></span><br>
+            <span class="shop time">Time : <b>{{things.time}}</b></span>
+            <span class="shop sunday">Sunday : <b>{{things.sunday}}</b> &nbsp; &nbsp; &nbsp; &nbsp;
+                Mobile No. : <b>{{things.mobile}}</b>
+                <button class="enquire-button" (click)="enqire(things.name,things.mobile)">Enquire
+                    Now</button></span>
+        </div>
+        <div class="image-container">
+            <span><img src="../../assets/all/{{things.image}}"></span>
+            <div class="other-detail">
+                <form class="review" [formGroup]="reviewform">
+
+                    <h4 style="margin-left: 60px;">Review Of Shop</h4>
+
+                    <div class="form-group">
+                        <div class="inputGroupContainer">
+                            <span>User Name</span>
+                            <div class="input-group">
+                                <span class="input-group-addon"><i class="fa fa-user"></i></span>
+                                <input name="name" class="form-control" placeholder="{{username}}" type="text"
+                                    formControlName="name" readonly>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <span>E-Mail</span>
+                        <div class="inputGroupContainer">
+                            <div class="input-group">
+                                <span class="input-group-addon"><i class="fa fa-envelope"></i></span>
+                                <input name="email" type="email" placeholder="{{usermail}}" class="form-control"
+                                    formControlName="email" readonly>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <span>Rating</span>
+                        <div class="inputGroupContainer">
+                            <div class="input-group">
+                                <span class="input-group-addon"><i class="fa fa-heart"></i></span>
+                                <select class="form-control" id="rate" formControlName="rate" name="rate">
+                                    <option value="" selected>Rate Shop</option>
+                                    <option value="1">1</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                    <option value="4">4</option>
+                                    <option value="5">5</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <span>Review</span>
+                        <div class="inputGroupContainer">
+                            <div class="input-group">
+                                <span class="input-group-addon"><i class="fa fa-pencil"></i></span>
+                                <textarea class="form-control" id="review" rows="2" formControlName="review"
+                                    name="review"></textarea>
+                            </div>
+                        </div>
+                    </div>
+
+                    <button type="submit" (click)="feedback(things.name)" class="btn btn-primary"
+                        style="margin-left: 140px;">Submit</button>
+
+                </form>
+                <div class="display-review">
+                    <div class="scroll">
+                        <div class="data" *ngFor="let feedback of feedbacks">
+                            <span class="review-user">{{feedback.username}}</span>
+                            <span>
+
+                                <p style="float: left;padding: 5px;"><span style="color:blue">Review :
+                                    </span><b>{{feedback.review}}</b></p>
+                                <p><span style="color:blue">Rate : </span><b>{{feedback.rate}}</b> </p>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div *ngIf="traveld">
+        <div class="detail">
+            <span class="shop name">Name : <b>{{things.traveller}}</b></span>
+            <span class="shop address">Mobile No. : <b>{{things.mobile}}</b></span><br>
+            <span class="shop time">City : <b>{{things.city}}</b></span>
+            <span class="shop sunday">Price : <b>{{things.price}}</b> <button class="enquire-button"
+                    (click)="enqire(things.traveller,things.mobile)">Enquire
+                    Now</button></span>
+        </div>
+        <div class="image-container">
+            <span><img src="../../assets/all/{{things.image}}"></span>
+            <div class="other-detail">
+                <form class="review" [formGroup]="reviewform">
+                    <h4 style="margin-left: 60px;">Review Of Shop</h4>
+
+                    <div class="form-group">
+                        <div class="inputGroupContainer">
+                            <span>User Name</span>
+                            <div class="input-group">
+                                <span class="input-group-addon"><i class="fa fa-user"></i></span>
+                                <input name="name" class="form-control" placeholder="{{username}}" type="text"
+                                    formControlName="name" readonly>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <span>E-Mail</span>
+                        <div class="inputGroupContainer">
+                            <div class="input-group">
+                                <span class="input-group-addon"><i class="fa fa-envelope"></i></span>
+                                <input name="email" type="email" placeholder="{{usermail}}" class="form-control"
+                                    formControlName="email" readonly>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <span>Rating</span>
+                        <div class="inputGroupContainer">
+                            <div class="input-group">
+                                <span class="input-group-addon"><i class="fa fa-heart"></i></span>
+                                <select class="form-control" id="rate" formControlName="rate" name="rate">
+                                    <option value="" selected>Rate Shop</option>
+                                    <option value="1">1</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                    <option value="4">4</option>
+                                    <option value="5">5</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <span>Review</span>
+                        <div class="inputGroupContainer">
+                            <div class="input-group">
+                                <span class="input-group-addon"><i class="fa fa-pencil"></i></span>
+                                <textarea class="form-control" id="review" rows="2" formControlName="review"
+                                    name="review"></textarea>
+                            </div>
+                        </div>
+                    </div>
+                    <button type="submit" (click)="feedback(things.traveller)" class="btn btn-primary"
+                        style="margin-left: 140px;">Submit</button>
+                </form>
+
+                <div class="display-review">
+                    <div class="scroll">
+                        <div class="data" *ngFor="let feedback of feedbacks">
+                            <span class="review-user">{{feedback.username}}</span>
+                            <span>
+                                <p style="float: left;padding: 5px;"><span style="color:blue">Review :
+                                    </span><b>{{feedback.review}}</b></p>
+                                <p><span style="color:blue">Rate : </span><b>{{feedback.rate}}</b> </p>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div *ngIf="hoteld">
+        <div class="detail">
+            <span class="shop name">Name : <b>{{things.name}}</b></span>
+            <span class="shop address">Mobile No. :<b>{{things.mobile}}</b></span>
+            <span class="shop address">Address :<b>{{things.address}}</b></span>
+            <br>
+            <span class="shop time">City : <b>{{things.city}}</b></span>
+            <span class="shop sunday">Type : <b>{{things.veg}}</b> <button class="enquire-button"
+                    (click)="enqire(things.name,things.mobile)">Enquire
+                    Now</button></span>
+        </div>
+        <div class="image-container">
+            <span><img src="../../assets/all/{{things.image}}"></span>
+            <div class="other-detail">
+                <form class="review" [formGroup]="reviewform">
+                    <h4 style="margin-left: 60px;">Review Of Shop</h4>
+
+                    <div class="form-group">
+                        <div class="inputGroupContainer">
+                            <span>User Name</span>
+                            <div class="input-group">
+                                <span class="input-group-addon"><i class="fa fa-user"></i></span>
+                                <input name="name" class="form-control" placeholder="{{username}}" type="text"
+                                    formControlName="name" readonly>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <span>E-Mail</span>
+                        <div class="inputGroupContainer">
+                            <div class="input-group">
+                                <span class="input-group-addon"><i class="fa fa-envelope"></i></span>
+                                <input name="email" type="email" placeholder="{{usermail}}" class="form-control"
+                                    formControlName="email" readonly>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <span>Rating</span>
+                        <div class="inputGroupContainer">
+                            <div class="input-group">
+                                <span class="input-group-addon"><i class="fa fa-heart"></i></span>
+                                <select class="form-control" id="rate" formControlName="rate" name="rate">
+                                    <option value="" selected>Rate Shop</option>
+                                    <option value="1">1</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                    <option value="4">4</option>
+                                    <option value="5">5</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <span>Review</span>
+                        <div class="inputGroupContainer">
+                            <div class="input-group">
+                                <span class="input-group-addon"><i class="fa fa-pencil"></i></span>
+                                <textarea class="form-control" id="review" rows="2" formControlName="review"
+                                    name="review"></textarea>
+                            </div>
+                        </div>
+                    </div>
+                    <button type="submit" (click)="feedback(things.name)" class="btn btn-primary"
+                        style="margin-left: 140px;">Submit</button>
+                </form>
+
+                <div class="display-review">
+                    <div class="scroll">
+                        <div class="data" *ngFor="let feedback of feedbacks">
+                            <span class="review-user">{{feedback.username}}</span>
+                            <span>
+
+                                <p style="float: left;padding: 5px;"><span style="color:blue">Review :
+                                    </span><b>{{feedback.review}}</b></p>
+                                <p><span style="color:blue">Rate : </span><b>{{feedback.rate}}</b> </p>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div *ngIf="estated">
+        <div class="detail">
+            <span class="shop name">Name : <b>{{things.estatename}}</b></span>
+            <span class="shop address">Mobile No. :<b>{{things.mobile}}</b></span>
+            <span class="shop address">Address :<b>{{things.address}}</b></span>
+            <span class="shop time">City : <b>{{things.city}}</b></span>
+            <span class="shop sunday">Type : <b>{{things.field}}</b>
+                <button class="enquire-button" (click)="enqire(things.estatename,things.mobile)">Enquire
+                    Now</button></span>
+        </div>
+        <div class="image-container">
+            <span><img src="../../assets/all/{{things.image}}"></span>
+            <div class="other-detail">
+                <form class="review" [formGroup]="reviewform">
+                    <h4 style="margin-left: 60px;">Review Of Shop</h4>
+
+                    <div class="form-group">
+                        <div class="inputGroupContainer">
+                            <span>User Name</span>
+                            <div class="input-group">
+                                <span class="input-group-addon"><i class="fa fa-user"></i></span>
+                                <input name="name" class="form-control" placeholder="{{username}}" type="text"
+                                    formControlName="name" readonly>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <span>E-Mail</span>
+                        <div class="inputGroupContainer">
+                            <div class="input-group">
+                                <span class="input-group-addon"><i class="fa fa-envelope"></i></span>
+                                <input name="email" type="email" placeholder="{{usermail}}" class="form-control"
+                                    formControlName="email" readonly>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <span>Rating</span>
+                        <div class="inputGroupContainer">
+                            <div class="input-group">
+                                <span class="input-group-addon"><i class="fa fa-heart"></i></span>
+                                <select class="form-control" id="rate" formControlName="rate" name="rate">
+                                    <option value="" selected>Rate Shop</option>
+                                    <option value="1">1</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                    <option value="4">4</option>
+                                    <option value="5">5</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <span>Review</span>
+                        <div class="inputGroupContainer">
+                            <div class="input-group">
+                                <span class="input-group-addon"><i class="fa fa-pencil"></i></span>
+                                <textarea class="form-control" id="review" rows="2" formControlName="review"
+                                    name="review"></textarea>
+                            </div>
+                        </div>
+                    </div>
+                    <button type="submit" (click)="feedback(things.estatename)" class="btn btn-primary"
+                        style="margin-left: 140px;">Submit</button>
+                </form>
+
+                <div class="display-review">
+                    <div class="scroll">
+                        <div class="data" *ngFor="let feedback of feedbacks">
+                            <span class="review-user">{{feedback.username}}</span>
+                            <span>
+
+                                <p style="float: left;padding: 5px;"><span style="color:blue">Review :
+                                    </span><b>{{feedback.review}}</b></p>
+                                <p><span style="color:blue">Rate : </span><b>{{feedback.rate}}</b> </p>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div *ngIf="beautyd">
+        <div class="detail">
+            <span class="shop name">Name : <b>{{things.beautyname}}</b></span>
+            <span class="shop address">Mobile No. :<b>{{things.mobile}}</b></span>
+            <span class="shop address">Address :<b>{{things.address}}</b></span>
+            <span class="shop time">City : <b>{{things.city}}</b></span>
+            <span class="shop sunday">Type : <b>{{things.field}}</b>
+                <button class="enquire-button" (click)="enqire(things.beautyname,things.mobile)">Enquire
+                    Now</button></span>
+        </div>
+        <div class="image-container">
+            <span><img src="../../assets/all/{{things.image}}"></span>
+            <div class="other-detail">
+                <form class="review" [formGroup]="reviewform">
+                    <h4 style="margin-left: 60px;">Review Of Shop</h4>
+
+                    <div class="form-group">
+                        <div class="inputGroupContainer">
+                            <span>User Name</span>
+                            <div class="input-group">
+                                <span class="input-group-addon"><i class="fa fa-user"></i></span>
+                                <input name="name" class="form-control" placeholder="{{username}}" type="text"
+                                    formControlName="name" readonly>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <span>E-Mail</span>
+                        <div class="inputGroupContainer">
+                            <div class="input-group">
+                                <span class="input-group-addon"><i class="fa fa-envelope"></i></span>
+                                <input name="email" type="email" placeholder="{{usermail}}" class="form-control"
+                                    formControlName="email" readonly>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <span>Rating</span>
+                        <div class="inputGroupContainer">
+                            <div class="input-group">
+                                <span class="input-group-addon"><i class="fa fa-heart"></i></span>
+                                <select class="form-control" id="rate" formControlName="rate" name="rate">
+                                    <option value="" selected>Rate Shop</option>
+                                    <option value="1">1</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                    <option value="4">4</option>
+                                    <option value="5">5</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <span>Review</span>
+                        <div class="inputGroupContainer">
+                            <div class="input-group">
+                                <span class="input-group-addon"><i class="fa fa-pencil"></i></span>
+                                <textarea class="form-control" id="review" rows="2" formControlName="review"
+                                    name="review"></textarea>
+                            </div>
+                        </div>
+                    </div>
+                    <button type="submit" (click)="feedback(things.beautyname)" class="btn btn-primary"
+                        style="margin-left: 140px;">Submit</button>
+                </form>
+
+                <div class="display-review">
+                    <div class="scroll">
+                        <div class="data" *ngFor="let feedback of feedbacks">
+                            <span class="review-user">{{feedback.username}}</span>
+                            <span>
+                                <p style="float: left;padding: 5px;"><span style="color:blue">Review :
+                                    </span><b>{{feedback.review}}</b></p>
+                                <p><span style="color:blue">Rate : </span><b>{{feedback.rate}}</b> </p>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- ------------------------------------------------------------------------------------------------------------ -->
+    <div *ngIf="educationd">
+        <div class="detail">
+            <span class="shop name">Name : <b>{{things.schoolname}}</b></span>
+            <span class="shop address">Mobile No. :<b>{{things.mobile}}</b></span>
+            <span class="shop address">Address :<b>{{things.address}}</b></span>
+            <span class="shop time">City : <b>{{things.city}}</b></span>
+            <span class="shop sunday">Type : <b>{{things.field}}</b>
+                <button class="enquire-button" (click)="enqire(things.schoolname,things.mobile)">Enquire
+                    Now</button></span>
+        </div>
+        <div class="image-container">
+            <span><img src="../../assets/all/{{things.image}}"></span>
+            <div class="other-detail">
+                <form class="review" [formGroup]="reviewform">
+                    <h4 style="margin-left: 60px;">Review Of Shop</h4>
+
+                    <div class="form-group">
+                        <div class="inputGroupContainer">
+                            <span>User Name</span>
+                            <div class="input-group">
+                                <span class="input-group-addon"><i class="fa fa-user"></i></span>
+                                <input name="name" class="form-control" placeholder="{{username}}" type="text"
+                                    formControlName="name" readonly>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <span>E-Mail</span>
+                        <div class="inputGroupContainer">
+                            <div class="input-group">
+                                <span class="input-group-addon"><i class="fa fa-envelope"></i></span>
+                                <input name="email" type="email" placeholder="{{usermail}}" class="form-control"
+                                    formControlName="email" readonly>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <span>Rating</span>
+                        <div class="inputGroupContainer">
+                            <div class="input-group">
+                                <span class="input-group-addon"><i class="fa fa-heart"></i></span>
+                                <select class="form-control" id="rate" formControlName="rate" name="rate">
+                                    <option value="" selected>Rate Shop</option>
+                                    <option value="1">1</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                    <option value="4">4</option>
+                                    <option value="5">5</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <span>Review</span>
+                        <div class="inputGroupContainer">
+                            <div class="input-group">
+                                <span class="input-group-addon"><i class="fa fa-pencil"></i></span>
+                                <textarea class="form-control" id="review" rows="2" formControlName="review"
+                                    name="review"></textarea>
+                            </div>
+                        </div>
+                    </div>
+                    <button type="submit" (click)="feedback(things.schoolname)" class="btn btn-primary"
+                        style="margin-left: 140px;">Submit</button>
+                </form>
+
+                <div class="display-review">
+                    <div class="scroll">
+                        <div class="data" *ngFor="let feedback of feedbacks">
+                            <span class="review-user">{{feedback.username}}</span>
+                            <span>
+                                <p style="float: left;padding: 5px;"><span style="color:blue">Review :
+                                    </span><b>{{feedback.review}}</b></p>
+                                <p><span style="color:blue">Rate : </span><b>{{feedback.rate}}</b> </p>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div *ngIf="vehicled">
+        <div class="detail">
+            <span class="shop name">Name : <b>{{things.vehiclename}}</b></span>
+            <span class="shop address">Mobile No. :<b>{{things.mobile}}</b></span>
+            <span class="shop address">Address :<b>{{things.address}}</b></span>
+            <span class="shop time">City : <b>{{things.city}}</b></span>
+            <span class="shop sunday">Type : <b>{{things.field}}</b>
+                <button class="enquire-button" (click)="enqire(things.vehiclename,things.mobile)">Enquire
+                    Now</button></span>
+        </div>
+        <div class="image-container">
+            <span><img src="../../assets/all/{{things.image}}"></span>
+            <div class="other-detail">
+                <form class="review" [formGroup]="reviewform">
+                    <h4 style="margin-left: 60px;">Review Of Shop</h4>
+
+                    <div class="form-group">
+                        <div class="inputGroupContainer">
+                            <span>User Name</span>
+                            <div class="input-group">
+                                <span class="input-group-addon"><i class="fa fa-user"></i></span>
+                                <input name="name" class="form-control" placeholder="{{username}}" type="text"
+                                    formControlName="name" readonly>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <span>E-Mail</span>
+                        <div class="inputGroupContainer">
+                            <div class="input-group">
+                                <span class="input-group-addon"><i class="fa fa-envelope"></i></span>
+                                <input name="email" type="email" placeholder="{{usermail}}" class="form-control"
+                                    formControlName="email" readonly>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <span>Rating</span>
+                        <div class="inputGroupContainer">
+                            <div class="input-group">
+                                <span class="input-group-addon"><i class="fa fa-heart"></i></span>
+                                <select class="form-control" id="rate" formControlName="rate" name="rate">
+                                    <option value="" selected>Rate Shop</option>
+                                    <option value="1">1</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                    <option value="4">4</option>
+                                    <option value="5">5</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <span>Review</span>
+                        <div class="inputGroupContainer">
+                            <div class="input-group">
+                                <span class="input-group-addon"><i class="fa fa-pencil"></i></span>
+                                <textarea class="form-control" id="review" rows="2" formControlName="review"
+                                    name="review"></textarea>
+                            </div>
+                        </div>
+                    </div>
+                    <button type="submit" (click)="feedback(things.vehiclename)" class="btn btn-primary"
+                        style="margin-left: 140px;">Submit</button>
+                </form>
+
+                <div class="display-review">
+                    <div class="scroll">
+                        <div class="data" *ngFor="let feedback of feedbacks">
+                            <span class="review-user">{{feedback.username}}</span>
+                            <span>
+                                <p style="float: left;padding: 5px;"><span style="color:blue">Review :
+                                    </span><b>{{feedback.review}}</b></p>
+                                <p><span style="color:blue">Rate : </span><b>{{feedback.rate}}</b> </p>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div *ngIf="consultantd">
+        <div class="detail">
+            <span class="shop name">Name : <b>{{things.lawyername}}</b></span>
+            <span class="shop address">Mobile No. :<b>{{things.mobile}}</b></span>
+            <span class="shop address">Address :<b>{{things.address}}</b></span>
+            <span class="shop time">City : <b>{{things.city}}</b></span>
+            <span class="shop price">Charge : <b>{{things.price}}</b></span>
+            <span class="shop sunday">Sunday : <b>{{things.sunday}}</b>
+                <button class="enquire-button" (click)="enqire(things.lawyername,things.mobile)">Enquire
+                    Now</button></span>
+        </div>
+        <div class="image-container">
+            <span><img src="../../assets/all/{{things.image}}"></span>
+            <div class="other-detail">
+                <form class="review" [formGroup]="reviewform">
+                    <h4 style="margin-left: 60px;">Review Of Shop</h4>
+
+                    <div class="form-group">
+                        <div class="inputGroupContainer">
+                            <span>User Name</span>
+                            <div class="input-group">
+                                <span class="input-group-addon"><i class="fa fa-user"></i></span>
+                                <input name="name" class="form-control" placeholder="{{username}}" type="text"
+                                    formControlName="name" readonly>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <span>E-Mail</span>
+                        <div class="inputGroupContainer">
+                            <div class="input-group">
+                                <span class="input-group-addon"><i class="fa fa-envelope"></i></span>
+                                <input name="email" type="email" placeholder="{{usermail}}" class="form-control"
+                                    formControlName="email" readonly>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <span>Rating</span>
+                        <div class="inputGroupContainer">
+                            <div class="input-group">
+                                <span class="input-group-addon"><i class="fa fa-heart"></i></span>
+                                <select class="form-control" id="rate" formControlName="rate" name="rate">
+                                    <option value="" selected>Rate Shop</option>
+                                    <option value="1">1</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                    <option value="4">4</option>
+                                    <option value="5">5</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <span>Review</span>
+                        <div class="inputGroupContainer">
+                            <div class="input-group">
+                                <span class="input-group-addon"><i class="fa fa-pencil"></i></span>
+                                <textarea class="form-control" id="review" rows="2" formControlName="review"
+                                    name="review"></textarea>
+                            </div>
+                        </div>
+                    </div>
+                    <button type="submit" (click)="feedback(things.lawyername)" class="btn btn-primary"
+                        style="margin-left: 140px;">Submit</button>
+                </form>
+
+                <div class="display-review">
+                    <div class="scroll">
+                        <div class="data" *ngFor="let feedback of feedbacks">
+                            <span class="review-user">{{feedback.username}}</span>
+                            <span>
+                                <p style="float: left;padding: 5px;"><span style="color:blue">Review :
+                                    </span><b>{{feedback.review}}</b></p>
+                                <p><span style="color:blue">Rate : </span><b>{{feedback.rate}}</b> </p>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div *ngIf="contractord">
+        <div class="detail">
+            <span class="shop name">Name : <b>{{things.contractorname}}</b></span>
+            <span class="shop address">Mobile No. :<b>{{things.mobile}}</b></span>
+            <span class="shop address">Address :<b>{{things.address}}</b></span>
+            <span class="shop time">City : <b>{{things.city}}</b></span>
+            <span class="shop sunday">Type : <b>{{things.field}}</b>
+                <button class="enquire-button" (click)="enqire(things.contractorname,things.mobile)">Enquire
+                    Now</button></span>
+        </div>
+        <div class="image-container">
+            <span><img src="../../assets/all/{{things.image}}"></span>
+            <div class="other-detail">
+                <form class="review" [formGroup]="reviewform">
+                    <h4 style="margin-left: 60px;">Review Of Shop</h4>
+
+                    <div class="form-group">
+                        <div class="inputGroupContainer">
+                            <span>User Name</span>
+                            <div class="input-group">
+                                <span class="input-group-addon"><i class="fa fa-user"></i></span>
+                                <input name="name" class="form-control" placeholder="{{username}}" type="text"
+                                    formControlName="name" readonly>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <span>E-Mail</span>
+                        <div class="inputGroupContainer">
+                            <div class="input-group">
+                                <span class="input-group-addon"><i class="fa fa-envelope"></i></span>
+                                <input name="email" type="email" placeholder="{{usermail}}" class="form-control"
+                                    formControlName="email" readonly>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <span>Rating</span>
+                        <div class="inputGroupContainer">
+                            <div class="input-group">
+                                <span class="input-group-addon"><i class="fa fa-heart"></i></span>
+                                <select class="form-control" id="rate" formControlName="rate" name="rate">
+                                    <option value="" selected>Rate Shop</option>
+                                    <option value="1">1</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                    <option value="4">4</option>
+                                    <option value="5">5</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <span>Review</span>
+                        <div class="inputGroupContainer">
+                            <div class="input-group">
+                                <span class="input-group-addon"><i class="fa fa-pencil"></i></span>
+                                <textarea class="form-control" id="review" rows="2" formControlName="review"
+                                    name="review"></textarea>
+                            </div>
+                        </div>
+                    </div>
+                    <button type="submit" (click)="feedback(things.contractorname)" class="btn btn-primary"
+                        style="margin-left: 140px;">Submit</button>
+                </form>
+
+                <div class="display-review">
+                    <div class="scroll">
+                        <div class="data" *ngFor="let feedback of feedbacks">
+                            <span class="review-user">{{feedback.username}}</span>
+                            <span>
+                                <p style="float: left;padding: 5px;"><span style="color:blue">Review :
+                                    </span><b>{{feedback.review}}</b></p>
+                                <p><span style="color:blue">Rate : </span><b>{{feedback.rate}}</b> </p>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div *ngIf="decorationd">
+        <div class="detail">
+            <span class="shop name">Name : <b>{{things.decoratorname}}</b></span>
+            <span class="shop address">Mobile No. :<b>{{things.mobile}}</b></span>
+            <span class="shop address">Address :<b>{{things.address}}</b></span>
+            <span class="shop time">City : <b>{{things.city}}</b>
+                <button class="enquire-button" (click)="enqire(things.decoratorname,things.mobile)">Enquire
+                    Now</button></span>
+        </div>
+        <div class="image-container">
+            <span><img src="../../assets/all/{{things.image}}"></span>
+            <div class="other-detail">
+                <form class="review" [formGroup]="reviewform">
+                    <h4 style="margin-left: 60px;">Review Of Shop</h4>
+
+                    <div class="form-group">
+                        <div class="inputGroupContainer">
+                            <span>User Name</span>
+                            <div class="input-group">
+                                <span class="input-group-addon"><i class="fa fa-user"></i></span>
+                                <input name="name" class="form-control" placeholder="{{username}}" type="text"
+                                    formControlName="name" readonly>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <span>E-Mail</span>
+                        <div class="inputGroupContainer">
+                            <div class="input-group">
+                                <span class="input-group-addon"><i class="fa fa-envelope"></i></span>
+                                <input name="email" type="email" placeholder="{{usermail}}" class="form-control"
+                                    formControlName="email" readonly>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <span>Rating</span>
+                        <div class="inputGroupContainer">
+                            <div class="input-group">
+                                <span class="input-group-addon"><i class="fa fa-heart"></i></span>
+                                <select class="form-control" id="rate" formControlName="rate" name="rate">
+                                    <option value="" selected>Rate Shop</option>
+                                    <option value="1">1</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                    <option value="4">4</option>
+                                    <option value="5">5</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <span>Review</span>
+                        <div class="inputGroupContainer">
+                            <div class="input-group">
+                                <span class="input-group-addon"><i class="fa fa-pencil"></i></span>
+                                <textarea class="form-control" id="review" rows="2" formControlName="review"
+                                    name="review"></textarea>
+                            </div>
+                        </div>
+                    </div>
+                    <button type="submit" (click)="feedback(things.decoratorname)" class="btn btn-primary"
+                        style="margin-left: 140px;">Submit</button>
+                </form>
+
+                <div class="display-review">
+                    <div class="scroll">
+                        <div class="data" *ngFor="let feedback of feedbacks">
+                            <span class="review-user">{{feedback.username}}</span>
+                            <span>
+                                <p style="float: left;padding: 5px;"><span style="color:blue">Review :
+                                    </span><b>{{feedback.review}}</b></p>
+                                <p><span style="color:blue">Rate : </span><b>{{feedback.rate}}</b> </p>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+</div>
+<div style="height: 50px;"></div>
+
+<app-footer></app-footer>

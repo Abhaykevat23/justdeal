@@ -1,0 +1,13 @@
+<section class="wrapper col-12">
+    <div class="row">
+        <div class="loop col-6 " *ngFor="let decoration of decorations">
+            <div class="card text-bg-primary">
+                <img src="../../../assets/all/{{decoration.image}}" class="f-img">
+                <h1>{{decoration.decoratorname}}</h1>
+                <p class="price"> Rs. {{decoration.mobile}}</p>
+                <p>City : {{decoration.city}}</p>
+                <p><button (click)="transfer(decoration.id)">Book</button></p>
+            </div>
+        </div>
+    </div>
+</section>

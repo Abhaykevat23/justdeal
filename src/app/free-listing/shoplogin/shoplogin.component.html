@@ -1,0 +1,34 @@
+<head>
+    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
+</head>
+
+<body>
+    <div class="container">
+    <div class="forms">
+    <div class="form login">
+        <span class="title">Listner Login</span>
+        <form [formGroup]="loginform" (ngSubmit)="shopuserlogin(loginform)">
+            <div class="input-field">
+                <input type="text" placeholder="Enter your email" formControlName="email" name="email" >
+                <i class="uil uil-envelope icon"></i>
+            </div>
+            <span style="color:red" *ngIf="email && email.invalid && email.touched"> Minimum 10 Character </span>
+            <div class="input-field">
+                <input type="password" class="password" placeholder="Enter your password"
+                    formControlName="password" name="password" >
+                <i class="uil uil-lock icon"></i>
+            </div>
+            <span style="color:red" *ngIf="password && password.invalid && password.touched"> Number only & Minimum 4 Numbers </span>
+            <div class="input-field button">
+                <button type="submit" [disabled]="loginform.invalid" class="btn btn-primary" style="font-size: 25px;margin-left: 110px;padding: 10px;width: 140px;">Login</button>
+            </div>
+        </form>
+        <div class="login-signup">
+            <span class="text">Not a member?
+                <a class="text signup-link" routerLink="/shopsignup">Signup Now</a>
+            </span>
+        </div>
+    </div>
+    </div>
+    </div>
+</body>

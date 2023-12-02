@@ -1,0 +1,15 @@
+<section class="wrapper col-12">
+  <div class="row">
+    <div class="loop col-4 " *ngFor="let education of educations">
+      <div class="card text-bg-primary">
+        <img src="../../../assets/all/{{education.image}}">
+        <h1>Name : {{education.schoolname}}</h1>
+        <p class="price">Mobile : {{education.mobile}}</p>
+        <p>field : {{education.field}}</p>
+        <p>Time : {{education.time}}</p>
+        <p>Address : {{education.address}}</p>
+        <p><button (click)="transfer(education.id)">Book</button></p>
+      </div>
+    </div>
+  </div>
+</section>

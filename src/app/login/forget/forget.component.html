@@ -1,0 +1,6 @@
+<h1>Forgot Password</h1>
+<form [formGroup]="forgotform" class="form">
+    <div class="col-md-6"><input type="email" formControlName="email" class="form-control" ></div>
+    <span style="color:red" *ngIf="email && email.invalid && email.touched"> Write correct email & Minimum 12 Character</span><br>
+    <div class="btn"><button (click)="send()" [disabled]="forgotform.invalid" class="btn btn-success" >Send Password</button></div>
+</form>

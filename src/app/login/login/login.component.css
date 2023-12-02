@@ -1,0 +1,31 @@
+.sign-up,.login{
+    text-align: center;
+}
+.sign-up,.login h1{
+    margin-top: 50px;
+    margin-bottom: 80px;
+    color: blueviolet;
+}
+.common-form{
+    display: flex;
+    flex-direction: column;
+    width: 300px;
+    margin: auto;
+}
+.form-input{
+    height: 35px;
+    margin-bottom: 20px;
+    color: blueviolet;
+    border: 1px solid blueviolet;
+    padding-left: 15px;
+}
+.form-button{
+    height: 35px;
+    border: 1px solid blueviolet;
+    color: blueviolet;
+    cursor: pointer;
+}
+.sign-up a ,.login a{
+    color: blue;
+    font-weight: 700;
+}

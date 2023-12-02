@@ -1,0 +1,15 @@
+<section class="wrapper col-12">
+    <div class="row">
+      <div class="loop col-4 " *ngFor="let vehicle of vehicles">
+        <div class="card text-bg-primary" >
+          <img src="../../../assets/all/{{vehicle.image}}" >
+          <h1>Name : {{vehicle.vehiclename}}</h1>
+          <p class="price">Mobile : {{vehicle.mobile}}</p>
+          <p>field : {{vehicle.field}}</p>
+          <p>Time : {{vehicle.time}}</p>
+          <p>Address : {{vehicle.address}}</p>
+          <p><button (click)="transfer(vehicle.id)" >Book</button></p>
+        </div>
+      </div>
+    </div>
+</section>

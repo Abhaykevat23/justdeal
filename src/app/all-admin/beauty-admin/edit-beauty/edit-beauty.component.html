@@ -1,0 +1,47 @@
+<form [formGroup]="editbeauty" style="margin-left: 50px;">
+    <input type="hidden" name="id" formControlName="id">
+    <div class="col-md-4">
+        <label for="input" class="form-label">beauty Name</label>
+        <input type="text" class="form-control" id="input" formControlName="beautyname" name="beautyname">
+        <span style="color:red" *ngIf="beautyname && beautyname.invalid && beautyname.touched"> Character only & Minimum 3 Character</span>
+    </div>
+    <div class="col-md-4">
+        <label for="input" class="form-label">Image &nbsp;&nbsp;</label>
+        <label style="color: red;"> * Reupload photo</label>
+        <input type="file" class="form-control" id="input" formControlName="image" name="image">
+    </div>
+    <div class="col-md-4">
+        <label for="input" class="form-label">time</label>
+        <input type="text" class="form-control" id="input" formControlName="time" name="time" placeholder="EX : 10:00 AM TO 10:00 PM">
+        <span style="color:red" *ngIf="beautytime && beautytime.invalid && beautytime.touched"> FORMAT : [ 10-am to 10-pm ] & Minimum 10 Character</span>
+    </div>
+    <div class="col-md-4">
+        <label for="input" class="form-label">Address</label>
+        <input type="text" class="form-control" id="input" formControlName="address" name="address">
+        <span style="color:red" *ngIf="beautyaddress && beautyaddress.invalid && beautyaddress.touched" >  Minimum 10 & Maximum 40 Character</span>
+    </div>
+    <div class="col-md-4">
+        <label for="input" class="form-label">City</label>
+        <input type="text" class="form-control" id="input" formControlName="city" name="city">
+        <span style="color:red" *ngIf="beautycity && beautycity.invalid && beautycity.touched"> Character only & Minimum 4 Character</span>
+    </div>
+    <div class="col-md-4">
+        <label for="input" class="form-label">Mobile No.</label>
+        <input type="text" class="form-control" id="input" formControlName="mobile" name="mobile">
+        <span style="color:red" *ngIf="beautymobile && beautymobile.invalid && beautymobile.touched"> Number only & Minimum 10 Character</span>
+    </div>
+    <div class="col-md-4">
+        <label for="input" class="form-label">Field <u>( Boys / Girls / Family )</u> </label>
+        <br>
+        <mat-radio-group formControlName="field" name="field">
+            <mat-radio-button value="boys">Boys</mat-radio-button>
+            <mat-radio-button value="girls">Girls</mat-radio-button>
+            <mat-radio-button value="family">Family</mat-radio-button>
+        </mat-radio-group>
+        <span style="color:red" *ngIf="beautyfield && beautyfield.invalid && beautyfield.touched"> Select One</span>
+    </div>
+    
+    <div class="col-md-6">
+        <button class="btn btn-primary" type="submit" (click)="edit()" [disabled]="editbeauty.invalid" >Add beauty</button>
+    </div>
+</form>

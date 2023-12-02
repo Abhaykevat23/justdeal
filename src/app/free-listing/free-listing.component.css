@@ -1,0 +1,40 @@
+/* now home page style */
+.table td{
+    padding: 20px;
+    text-align: center;
+    transition: ease-out 0.3s; 
+    cursor: pointer;
+}
+.table td:hover{
+    box-shadow: inset 0 0 15px black;
+    border-radius: 30px;
+}
+.table{
+    text-align: center;
+}
+.d-block{
+    width: 1500px;
+    height:350px;
+}
+.facalities{
+    padding: 30px;
+}
+.f-img{
+    height: 200px;
+    width: 200px;
+    border-radius: 20px;
+}
+.text{
+    font-size: 25px;
+    text-align: center;
+    font-weight: 600;
+    color: blue;
+}
+
+.profile{
+    margin-left: 10px;
+    margin-right: 10px;
+    border: 3px solid black;
+    border-radius: 10px;
+    padding: 10px;
+}

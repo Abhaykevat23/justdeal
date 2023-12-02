@@ -1,0 +1,38 @@
+.footer{
+    background-color: gray;
+    width: 1500px;
+}
+.contact{
+    padding: 30px;
+    font-size: 20px;
+    text-align: center;
+    margin-left: 300px;
+}
+.contact td,th{
+    padding: 10px;
+    width: 300px;
+}
+.copyright{
+    text-align: center;
+    font-size: 20px;
+    font-weight: 600;
+}
+.contact td,.footer p{
+    cursor: pointer;
+}
+
+.social-media{
+    display: flex;
+    margin-left: 450px ;
+}
+.social-media p,a{
+    margin-left: 40px ;
+    font-size: 30px;
+}
+.social-media p{
+    text-decoration: underline;
+}
+.social-media a{
+    text-decoration: none;
+    color: white;
+}

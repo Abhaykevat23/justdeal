@@ -1,0 +1,25 @@
+h1{
+    margin-left: 550px;
+}
+li{
+    font-size: 20px;
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+    /* font-weight: 600; */
+    margin-left: 50px;
+    margin-right: 20px;
+}
+h2{
+    margin-left: 20px;
+}
+div{
+    margin-left: 10px;
+}
+.social-media{
+    margin-left: 550px ;
+    margin-top: 100px;
+    margin-bottom: 100px;
+}
+.social-media p,a{
+    margin-left: 40px ;
+    font-size: 40px;
+}

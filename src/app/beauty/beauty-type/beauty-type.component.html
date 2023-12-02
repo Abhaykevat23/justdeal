@@ -1,0 +1,15 @@
+<section class="wrapper col-12">
+    <div class="row">
+      <div class="loop col-4 " *ngFor="let beauty of beautys">
+        <div class="card text-bg-primary" >
+          <img src="../../../assets/all/{{beauty.image}}" >
+          <h1>Name : {{beauty.beautyname}}</h1>
+          <p class="price">Mobile : {{beauty.mobile}}</p>
+          <p>field : {{beauty.field}}</p>
+          <p>Time : {{beauty.time}}</p>
+          <p>Address : {{beauty.address}}</p>
+          <p><button (click)="transfer(beauty.id)" >Book</button></p>
+        </div>
+      </div>
+    </div>
+</section>

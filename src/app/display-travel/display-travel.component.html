@@ -1,0 +1,14 @@
+<section class="wrapper col-12">
+  <input type="search" name="search" class="search" placeholder="Search Traveller" [(ngModel)]="searchbus" >
+<div class="row">
+  <div class="loop col-6 " *ngFor="let travel of travels | filter:searchbus">
+    <div class="card text-bg-primary" >
+      <img src="../../../assets/all/{{travel.image}}" class="f-img">
+      <h1>{{travel.traveller}}</h1>
+      <p class="price"> Rs. {{travel.price}}</p>
+      <p>City : {{travel.city}}</p>
+      <p><button (click)="transfer(travel.id)" >Book</button></p>
+    </div>
+  </div>
+</div>
+</section>
